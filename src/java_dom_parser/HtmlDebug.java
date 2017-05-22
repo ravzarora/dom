@@ -3,7 +3,7 @@ package java_dom_parser;
 
 
 /*
- * XmlDebug.java
+ * HtmlDebug.java
  *
  * Created on May 22, 2017, 13:46 PM
  */
@@ -21,12 +21,12 @@ import org.xml.sax.SAXParseException;
 
 
 
-public class XmlDebug {
+public class HtmlDebug {
     public static final int INDENT = 3;
     private StringBuffer errorMessages = new StringBuffer();
 
    
-    private XmlDebug() {}
+    private HtmlDebug() {}
 
     
     public static void logDocument(Document d, String comment)
@@ -147,7 +147,7 @@ public class XmlDebug {
    
     public static String validateDocument(String filename)
     {
-        XmlDebug debug = new XmlDebug();
+        HtmlDebug debug = new HtmlDebug();
         return debug.validateDocumentInternal(filename);
     }
 
@@ -177,8 +177,8 @@ public class XmlDebug {
 
     public static void main(String[] argv)
     {
-        
-        String filename = "simple.xml";
+    	long startTime = System.currentTimeMillis();
+        String filename = "sample.html";
         
        
           //  printDocument(filename);
@@ -188,6 +188,9 @@ public class XmlDebug {
             if (rc.length() == 0)
                 rc = "Good document";
             System.out.println(rc);
+            long endTime   = System.currentTimeMillis();
+            long totalTime = endTime - startTime;
+            System.out.println(totalTime);
         }
     }
 }
